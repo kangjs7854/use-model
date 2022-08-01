@@ -9,6 +9,10 @@
     "build": "microbundle --jsx React.createElement --jsxFragment React.Fragment --no-sourcemap",
     "dev": "microbundle watch"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kangjs7854/use-model.git"
+  },
   "files": [
     "dist/"
   ],
