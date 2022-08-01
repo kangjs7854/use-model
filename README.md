@@ -1,5 +1,10 @@
 # use-model
 
+[] create state model with reducer and react context.
+[] type inference state and reducer handler.
+
+
+
 # Installation
 
 ```
@@ -11,7 +16,7 @@ yarn add use-model
 
 ## createModel
 
-create model by coustom hook. the function returns a tuple, the first value of the tuple is a react cotext provider,the second value of tuple is the function to get result of that coustom hook
+ the function returns a tuple, the first value of the tuple is a react cotext provider,the second value of tuple is the function to get state and dispatch handler.
 
 ```js
 import createModel, { useReducerEnhance } from "use-model";
