@@ -1,7 +1,7 @@
 # use-model
 
-[x] create state model with reducer and react context.
-[x] type inference state and reducer handler.
+- create state model with reducer and react context.
+- type inference state and reducer handler.
 
 
 
