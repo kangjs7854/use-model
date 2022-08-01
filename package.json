@@ -1,0 +1,29 @@
+{
+  "name": "use-model",
+  "version": "0.0.1",
+  "description": "create state model with reducer and context",
+  "source": "src/index.ts",
+  "types": "./dist/index.d.ts",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "microbundle --jsx React.createElement --jsxFragment React.Fragment --no-sourcemap",
+    "dev": "microbundle watch"
+  },
+  "files": [
+    "dist/"
+  ],
+  "keywords": [
+    "react",
+    "state",
+    "model"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "16.8",
+    "microbundle": "^0.15.0",
+    "react": "^16.8.0 || ^17.0.1 || ^18.0.0"
+  },
+  "dependencies": {
+    "react": "^16.8.0 || ^17.0.1 || ^18.0.0"
+  }
+}
