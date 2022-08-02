@@ -1,4 +1,4 @@
-# use-model
+# use-react-model
 
 - create state model with reducer and react context.
 - type inference state and reducer handler.
@@ -6,7 +6,7 @@
 # Installation
 
 ```
-yarn add use-model
+yarn add use-react-model
 
 ```
 
