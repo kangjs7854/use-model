@@ -3,8 +3,6 @@
 - create state model with reducer and react context.
 - type inference state and reducer handler.
 
-
-
 # Installation
 
 ```
@@ -16,10 +14,10 @@ yarn add use-model
 
 ## createModel
 
- the function returns a tuple, the first value of the tuple is a react cotext provider,the second value of tuple is the function to get state and dispatch handler.
+the function returns a tuple, the first value of the tuple is a react cotext provider,the second value of tuple is the function to get state and dispatch handler.
 
 ```js
-import createModel, { useReducerEnhance } from "use-model";
+import createModel, { useReducerEnhance } from "use-react-model";
 
 const [CountProvider, useCountCtx] = createModel(
   {
