@@ -1,6 +1,6 @@
 {
   "name": "use-react-model",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "create state model with reducer and context",
   "source": "src/index.ts",
   "types": "./dist/index.d.ts",
