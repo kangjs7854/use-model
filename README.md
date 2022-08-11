@@ -17,7 +17,7 @@ yarn add use-react-model
 the function returns a tuple, the first value of the tuple is a react cotext provider,the second value of tuple is the function to get state and dispatch handler.
 
 ```js
-import { createModel } from "use-react-model";
+import createModel  from "use-react-model";
 
 const [CountProvider, useCountCtx] = createModel(
   {
