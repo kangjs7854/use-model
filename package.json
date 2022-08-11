@@ -2,32 +2,46 @@
   "name": "use-react-model",
   "version": "0.0.4",
   "description": "create state model with reducer and context",
-  "source": "src/index.ts",
-  "types": "./dist/index.d.ts",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "microbundle --jsx React.createElement --jsxFragment React.Fragment --no-sourcemap",
-    "dev": "microbundle watch"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kangjs7854/use-model.git"
-  },
-  "files": [
-    "dist/"
-  ],
   "keywords": [
     "react",
     "state",
     "model"
   ],
-  "author": "kangjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kangjs7854/use-model.git"
+  },
   "license": "MIT",
-  "devDependencies": {
-    "@types/react": "16.8",
-    "microbundle": "^0.15.0"
+  "author": "kangjs",
+  "module": "es/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "es/"
+  ],
+  "scripts": {
+    "build": "father-build",
+    "deploy": "npm run docs:build && npm run docs:deploy",
+    "docs:build": "dumi build",
+    "docs:deploy": "gh-pages -d docs-dist",
+    "prepublishOnly": "npm run build",
+    "start": "dumi dev",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage"
   },
   "dependencies": {
-    "react": "^16.8.0 || ^17.0.1 || ^18.0.0"
+    "react": "^16.9.0"
+  },
+  "devDependencies": {
+    "@testing-library/react-hooks": "^8.0.1",
+    "@types/jest": "^28.1.6",
+    "@types/react": "16.8",
+    "@types/react-dom": "^16.9.3",
+    "@umijs/fabric": "^2.8.1",
+    "@umijs/test": "^3.0.5",
+    "dumi": "^1.1.47",
+    "father-build": "^1.22.3",
+    "jest": "^28.1.3",
+    "react-test-renderer": "^16.9.0",
+    "ts-jest": "^28.0.7"
   }
 }

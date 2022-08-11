@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { initContext } from "./initContext";
+import React from "react";
+import { genModelCtx } from "./genModelCtx";
 import { useReducerEnhance } from "./useReducerEnhance";
 
-const NO_PROVIDER = {};
 type Hooks<Value> = [() => Value];
 
 export function createModel<S, A>(
@@ -19,23 +18,19 @@ export function createModel<S, A>(
     dispatchAction: { [type in keyof A]: (payload?: any) => void };
   }>
 ] {
-  const getCtx = initContext(NO_PROVIDER as any);
-  const Ctx = getCtx();
+  const { Context, useCtx } = genModelCtx<{
+    state: S;
+    dispatch: React.Dispatch<{
+      type: keyof A;
+      payload?: any;
+    }>;
+    dispatchAction: { [type in keyof A]: (payload?: any) => void };
+  }>("");
 
   const Provider = ({ children }: any) => {
     const model = useReducerEnhance(store, action);
-    return <Ctx.Provider value={model}>{children}</Ctx.Provider>;
+    return <Context.Provider value={model}>{children}</Context.Provider>;
   };
 
-  const useCtx = () => {
-    const ctx = useContext(Ctx);
-    if (ctx === NO_PROVIDER)
-      throw new Error(
-        `${JSON.stringify(
-          store
-        )}这个model，未在组件外层包裹对应的Provider，无法通过上下文访问`
-      );
-    return ctx;
-  };
   return [Provider, useCtx];
 }

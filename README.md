@@ -17,7 +17,7 @@ yarn add use-react-model
 the function returns a tuple, the first value of the tuple is a react cotext provider,the second value of tuple is the function to get state and dispatch handler.
 
 ```js
-import createModel, { useReducerEnhance } from "use-react-model";
+import { createModel } from "use-react-model";
 
 const [CountProvider, useCountCtx] = createModel(
   {
@@ -49,7 +49,7 @@ function Son() {
         countModel.dispatchAction.add(1);
       }}
     >
-      {countModel.count}
+      {countModel.state.count}
     </div>
   );
 }
@@ -65,4 +65,41 @@ compose context provider
 </ContextCompose>
 ```
 
-## useReducerEnhance
+## createModelByCustomHook
+
+create state model by existed custom hook.
+
+```js
+import { createModelByCustomHook } from "use-react-model";
+
+function useCount() {
+  const [count, setCount] = useState(0);
+  return {
+    count,
+    setCount,
+  };
+}
+
+const [CountProvider, useCountCtx] = createModelByCustomHook(useCount);
+
+function Father() {
+  return (
+    <CountProvider>
+      <Son />
+    </CountProvider>
+  );
+}
+
+function Son() {
+  const countModel = useCountCtx();
+  return (
+    <div
+      onClick={() => {
+        countModel.setCount(1);
+      }}
+    >
+      {countModel.count}
+    </div>
+  );
+}
+```
