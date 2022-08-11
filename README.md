@@ -3,6 +3,10 @@
 - create state model with reducer and react context.
 - type inference state and reducer handler.
 
+# Example 
+
+https://kangjs7854.github.io/use-model/create-model
+
 # Installation
 
 ```
