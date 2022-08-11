@@ -1,6 +1,6 @@
 {
   "name": "use-react-model",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "create state model with reducer and context",
   "keywords": [
     "react",
@@ -14,7 +14,7 @@
   "license": "MIT",
   "author": "kangjs",
   "module": "es/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "es/index.d.ts",
   "files": [
     "es/"
   ],
