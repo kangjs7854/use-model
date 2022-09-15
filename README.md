@@ -3,7 +3,7 @@
 - create state model with reducer and react context.
 - type inference state and reducer handler.
 
-# Example 
+# Example
 
 https://kangjs7854.github.io/use-model/create-model
 
@@ -21,7 +21,7 @@ yarn add use-react-model
 the function returns a tuple, the first value of the tuple is a react cotext provider,the second value of tuple is the function to get state and dispatch handler.
 
 ```js
-import createModel  from "use-react-model";
+import createModel from "use-react-model";
 
 const [CountProvider, useCountCtx] = createModel(
   {
@@ -71,7 +71,7 @@ compose context provider
 
 ## createModelByCustomHook
 
-create state model by existed custom hook.
+create state model by existed custom hook and conext.
 
 ```js
 import { createModelByCustomHook } from "use-react-model";
@@ -84,18 +84,38 @@ function useCount() {
   };
 }
 
-const [CountProvider, useCountCtx] = createModelByCustomHook(useCount);
+const ExistContext = createContext(null);
+
+const [CountProvider, useCountCtx] = createModelByCustomHook(
+  useCount,
+  ExistContext
+);
 
 function Father() {
   return (
     <CountProvider>
       <Son />
+      <OldSon />
     </CountProvider>
   );
 }
 
 function Son() {
   const countModel = useCountCtx();
+  return (
+    <div
+      onClick={() => {
+        countModel.setCount(1);
+      }}
+    >
+      {countModel.count}
+    </div>
+  );
+}
+
+//old son still can use the exist context
+function OldSon() {
+  const countModel = useContext(ExistContext);
   return (
     <div
       onClick={() => {
