@@ -13,9 +13,12 @@ const initContext = <S,>(store: S) => {
 
 export const NO_PROVIDER = {};
 
-export function genModelCtx<Model>(displayName: string) {
+export function genModelCtx<Model>(
+  displayName: string,
+  existCtx?: React.Context<Model>
+) {
   const getCtx = initContext<Model>(NO_PROVIDER as any);
-  const Context = getCtx();
+  const Context = existCtx || getCtx();
   Context.displayName = displayName;
 
   const useCtx = () => {
